@@ -1,7 +1,7 @@
 gpackage com.example.grocerystore;
 
 public class IceCreamStore {
-//This is a test
+//This is a testgit
     public static void main(String[] args) {
         String[] itemsToBuy = {"Chocolate", "Vanilla"};
         int[] amountsToBuy = {2, 5};
