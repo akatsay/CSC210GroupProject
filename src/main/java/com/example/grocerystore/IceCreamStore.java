@@ -1,21 +1,24 @@
 package com.example.grocerystore;
 
+
+import java.util.ArrayList;
+
 public class IceCreamStore {
     // test
-    public static void main(String[] args) {
-        String[] itemsToBuy = {"Chocolate", "Vanilla"};
-        int[] amountsToBuy = {2, 5};
-        IceCreamStore store = new IceCreamStore();
-        System.out.println(store.getUsername());
-        System.out.println(store.getPassword());
-        System.out.println(store.getPrice("Chocolate"));
-        double calculatedCost = store.calculateCost( itemsToBuy, amountsToBuy);
-        System.out.println(calculatedCost);
-        double calculatedTax = store.calculateTaxes(calculatedCost);
-        System.out.println(calculatedTax);
-        System.out.println(store.calculateTotalCost(calculatedCost, calculatedTax));
-
-    }
+//    public static void main(String[] args) {
+//        String[] itemsToBuy = {"Chocolate", "Vanilla"};
+//        ArrayList<Integer> amountsToBuy = [2, 5];
+//        IceCreamStore store = new IceCreamStore();
+//        System.out.println(store.getUsername());
+//        System.out.println(store.getPassword());
+//        System.out.println(store.getPrice("Chocolate"));
+//        double calculatedCost = store.calculateCost( itemsToBuy, amountsToBuy);
+//        System.out.println(calculatedCost);
+//        double calculatedTax = store.calculateTaxes(calculatedCost);
+//        System.out.println(calculatedTax);
+//        System.out.println(store.calculateTotalCost(calculatedCost, calculatedTax));
+//
+//    }
     // declare all variables
     private String[][] usernameAndPassword;
     private String[] itemNames;
@@ -57,11 +60,11 @@ public class IceCreamStore {
         return itemNames;
     }
 
-    public double calculateCost(String[] itemNames, int[] itemAmounts) {
+    public double calculateCost(String[] itemNames, ArrayList<Integer> itemAmounts) {
         double cost = 0;
         for (int i = 0; i < itemNames.length; i++ ) {
             double price = getPrice(itemNames[i]);
-            int itemAmount = itemAmounts[i];
+            int itemAmount = itemAmounts.get(i);
             cost += price * itemAmount;
         }
         return cost;
