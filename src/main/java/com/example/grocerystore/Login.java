@@ -10,7 +10,7 @@ import javafx.scene.control.*;
 //Login Application Class
 public class Login extends Application {
 
-    // Class containing userName and Password validation
+    // Method containing userName and Password validation
     public boolean isValidUser(String enterUsername, String enterPassword) {
         IceCreamStore groceryStore = new IceCreamStore();
         return enterUsername.equals(groceryStore.getUsername()) && enterPassword.equals(groceryStore.getPassword());
@@ -22,6 +22,7 @@ public class Login extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        // display title of the stage and initialize grid
         primaryStage.setTitle("IceCream Store App");
         GridPane grid = new GridPane();
         // Centers the login text box prompt

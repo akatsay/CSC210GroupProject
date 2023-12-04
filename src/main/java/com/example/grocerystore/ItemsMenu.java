@@ -1,30 +1,28 @@
 package com.example.grocerystore;
 
-import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemsMenu extends Pane {
-
+    // Declare IceCreamStore and spinners
     private IceCreamStore iceCreamStore;
     private List<Spinner<Integer>> quantitySpinners;
 
     public ItemsMenu() {
+        // construct IceCreamStore and spinners
         iceCreamStore = new IceCreamStore();
         quantitySpinners = new ArrayList<>();
 
         // Initialize itemNames here
         String[] itemNames = iceCreamStore.getItemNames();
 
-        // Use the createItemsMenuPane method to initialize the GridPane
+        // Use the createItemsMenuPane method to initialize the GridPane for Items menu
         GridPane grid = createItemsMenuPane(itemNames);
 
         getChildren().add(grid);
@@ -33,7 +31,9 @@ public class ItemsMenu extends Pane {
     // New method to initialize the GridPane for the ItemsMenu
     private GridPane createItemsMenuPane(String[] itemNames) {
         GridPane grid = new GridPane();
+        // center items inside the grid
         grid.setAlignment(javafx.geometry.Pos.CENTER);
+        // set gaps between elements and padding
         grid.setVgap(15);
         grid.setHgap(5);
         grid.setPadding(new Insets(10, 10, 10, 10));
@@ -42,7 +42,7 @@ public class ItemsMenu extends Pane {
         // Display menu
         displayMenu(grid, itemNames);
 
-        // Button for calculations
+        // Button to trigger calculations
         Button calculateButton = new Button("Calculate");
         grid.add(calculateButton, 2, 4);
 
@@ -56,6 +56,7 @@ public class ItemsMenu extends Pane {
         return grid;
     }
 
+    // Method to map through all existing items and create display interactive line for each one
     private void displayMenu(GridPane grid, String[] itemNames) {
         // displaying controls and labels for each individual item
         quantitySpinners = new ArrayList<>();
@@ -70,6 +71,7 @@ public class ItemsMenu extends Pane {
         }
     }
 
+    // method that runs all the necessary calculations and displays them in resultTextArea
     private void calculateAndDisplay(String[] itemNames, TextArea resultTextArea) {
         ArrayList<Integer> quantitiesInt = new ArrayList<>();
 

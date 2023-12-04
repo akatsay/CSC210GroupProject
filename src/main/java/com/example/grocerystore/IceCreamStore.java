@@ -4,22 +4,8 @@ package com.example.grocerystore;
 import java.util.ArrayList;
 
 public class IceCreamStore {
-    // test
-//    public static void main(String[] args) {
-//        String[] itemsToBuy = {"Chocolate", "Vanilla"};
-//        ArrayList<Integer> amountsToBuy = [2, 5];
-//        IceCreamStore store = new IceCreamStore();
-//        System.out.println(store.getUsername());
-//        System.out.println(store.getPassword());
-//        System.out.println(store.getPrice("Chocolate"));
-//        double calculatedCost = store.calculateCost( itemsToBuy, amountsToBuy);
-//        System.out.println(calculatedCost);
-//        double calculatedTax = store.calculateTaxes(calculatedCost);
-//        System.out.println(calculatedTax);
-//        System.out.println(store.calculateTotalCost(calculatedCost, calculatedTax));
-//
-//    }
-    // declare all variables
+
+    // Declare all variables
     private String[][] usernameAndPassword;
     private String[] itemNames;
     private double[] itemPrices;
@@ -41,6 +27,7 @@ public class IceCreamStore {
         return usernameAndPassword[1][0];
     }
 
+    // Method that returns price corresponding with an individual item
     public double getPrice(String itemName) {
         int index = -1;
         for (int i = 0; i < itemNames.length; i++) {
@@ -60,6 +47,7 @@ public class IceCreamStore {
         return itemNames;
     }
 
+    // Method that calculates pretax cost for all items chosen
     public double calculateCost(String[] itemNames, ArrayList<Integer> itemAmounts) {
         double cost = 0;
         for (int i = 0; i < itemNames.length; i++ ) {
@@ -70,10 +58,12 @@ public class IceCreamStore {
         return cost;
     }
 
+    // Method that calculates tax amount
     public double calculateTaxes(double cost) {
         return cost * taxRate;
     }
 
+    // Method that calculates final cost with tax included
     public double calculateTotalCost(double cost, double tax) {
         return cost + tax;
     }
