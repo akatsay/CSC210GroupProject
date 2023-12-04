@@ -27,6 +27,9 @@ public class Login extends Application {
         GridPane grid = new GridPane();
         // Centers the login text box prompt
         grid.setAlignment(javafx.geometry.Pos.CENTER);
+        // set gaps between elements and padding
+        grid.setVgap(15);
+        grid.setHgap(5);
 
         // Login screen password and username prompt
         // Username
